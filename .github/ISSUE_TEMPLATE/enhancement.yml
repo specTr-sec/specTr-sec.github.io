@@ -35,7 +35,7 @@ body:
       required: true
   
   - type: textarea
-    id: acceptance criteria
+    id: acceptance-criteria
     attributes:
       label: Proposed improvement
       description: What would make this issue considered done?
