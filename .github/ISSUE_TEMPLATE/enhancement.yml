@@ -18,19 +18,10 @@ body:
       required: true
   
   - type: input
-    id: target
+    id: aim
     attributes:
-      label: What needs enhancement?
-      description: Specific post, component, or feature. Where is it?
-    validations:
-      required: true
-  
-  - type: textarea
-    id: current-state
-    attributes:
-      label: Current state
-      description: What exists now?
-      placeholder: "The password meter only checks length and character types..."
+      label: What needs enhancement 
+      placeholder: "Specific post, component, or feature. Where is it? What's there now?"
     validations:
       required: true
   
@@ -42,15 +33,6 @@ body:
       placeholder: "Add entropy calculation, check against common password lists, show estimated crack time..."
     validations:
       required: true
-  
-  - type: textarea
-    id: why
-    attributes:
-      label: Why this improvement?
-      description: What problem does it solve or what does it teach?
-      placeholder: "Would demonstrate how password entropy actually works, more realistic security model..."
-    validations:
-      required: false
   
   - type: dropdown
     id: priority
