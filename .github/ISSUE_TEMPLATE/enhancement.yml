@@ -17,7 +17,7 @@ body:
     validations:
       required: true
   
-  - type: input
+  - type: textarea
     id: aim
     attributes:
       label: What needs enhancement 
