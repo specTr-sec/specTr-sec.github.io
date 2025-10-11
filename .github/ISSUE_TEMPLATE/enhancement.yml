@@ -1,0 +1,73 @@
+name: Enhancement
+description: New features
+title: "[ENHANCE]: "
+labels: ["enhancement"]
+body:  
+  - type: dropdown
+    id: enhancement-type
+    attributes:
+      label: Enhancement type
+      options:
+        - Improve existing interactive component
+        - Update/expand existing post
+        - Site feature
+        - New reusable component
+        - Testing/CI/github improvement
+        - Other
+    validations:
+      required: true
+  
+  - type: input
+    id: target
+    attributes:
+      label: What needs enhancement?
+      description: Specific post, component, or feature. Where is it?
+    validations:
+      required: true
+  
+  - type: textarea
+    id: current-state
+    attributes:
+      label: Current state
+      description: What exists now?
+      placeholder: "The password meter only checks length and character types..."
+    validations:
+      required: true
+  
+  - type: textarea
+    id: acceptance criteria
+    attributes:
+      label: Proposed improvement
+      description: What would make this issue considered done?
+      placeholder: "Add entropy calculation, check against common password lists, show estimated crack time..."
+    validations:
+      required: true
+  
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this improvement?
+      description: What problem does it solve or what does it teach?
+      placeholder: "Would demonstrate how password entropy actually works, more realistic security model..."
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority (for you)
+      description: How important is this to you right now?
+      options:
+        - Low (nice to have)
+        - Medium (would improve things)
+        - High (actively bothering me)
+    validations:
+      required: false
+  
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation notes
+      description: Useful resources
+    validations:
+      required: false
