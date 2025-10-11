@@ -55,14 +55,25 @@ body:
   - type: dropdown
     id: priority
     attributes:
-      label: Priority (for you)
-      description: How important is this to you right now?
+      label: Priority 
       options:
-        - Low (nice to have)
-        - Medium (would improve things)
-        - High (actively bothering me)
+        - Low 
+        - Medium
+        - High 
     validations:
-      required: false
+      required: true
+
+    - type: dropdown
+    id: difficulty
+    description: How much time and brainpower is this gonna take?
+    attributes:
+      label: Difficulty 
+      options:
+        - Easy 
+        - Average
+        - Hard 
+    validations:
+      required: true
   
   - type: textarea
     id: implementation
