@@ -65,9 +65,9 @@ body:
 
 - type: dropdown
     id: difficulty
-    description: How much time and brainpower is this gonna take?
     attributes:
-      label: Difficulty 
+      label: Difficulty
+      description: How much time and brainpower is this gonna take?
       options:
         - Easy 
         - Average
