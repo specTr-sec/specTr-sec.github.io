@@ -63,7 +63,7 @@ body:
     validations:
       required: true
 
-    - type: dropdown
+- type: dropdown
     id: difficulty
     description: How much time and brainpower is this gonna take?
     attributes:
