@@ -64,7 +64,7 @@ body:
       required: false
   
   - type: input
-    id: resources & notes
+    id: resources
     attributes:
       label: Useful info to finish the issue
       description: Any links or resources that would prove useful?
