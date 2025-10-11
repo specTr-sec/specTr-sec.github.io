@@ -34,26 +34,27 @@ body:
     validations:
       required: true
   
-  - type: dropdown
+  - type: checkboxes
     id: priority
     attributes:
-      label: Priority 
+      label: Priority
+      description: Select one
       options:
-        - Low 
-        - Medium
-        - High 
+        - label: "priority: low"
+        - label: "priority: medium"
+        - label: "priority: high"
     validations:
       required: true
-
-  - type: dropdown
+      
+  - type: checkboxes
     id: difficulty
     attributes:
       label: Difficulty
-      description: How much time and brainpower is this gonna take?
+      description: How much time and brainpower is this gonna take? Select one.
       options:
-        - Easy 
-        - Average
-        - Hard 
+        - label: "difficulty: easy"
+        - label: "difficulty: average"
+        - label: "difficulty: hard"
     validations:
       required: true
   
