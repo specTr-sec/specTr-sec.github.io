@@ -1,0 +1,26 @@
+
+---
+import NavBar from '../components/NavBar.astro';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <NavBar />
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Spectr</p>
+        <p class="mt-sm text-muted">All demonstrations conducted in isolated environments</p>
+      </div>
+    </footer>
+  </body>
+</html>
