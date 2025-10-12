@@ -1,0 +1,72 @@
+name: Content Idea
+description: Track new blog post ideas
+title: "[CONTENT]: "
+labels: ["content", "idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        New content ideas go here.
+  
+  - type: input
+    id: title
+    attributes:
+      label: Post (working) title 
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: category
+    attributes:
+      label: Content category
+      options:
+        - Cryptography
+        - Web Security
+        - Network Security
+        - Malware Analysis
+        - Penetration Testing
+        - Secure Development
+        - Security Tool
+        - CTF Writeup
+        - Research Notes
+        - Digital Forensics
+        - Opinion Piece
+        - Other
+    validations:
+      required: true
+  
+  - type: textarea
+    id: concept
+    attributes:
+      label: Core concept
+      description: The main security concept explored
+      placeholder: "Explain how attackers can exfiltrate data by..."
+    validations:
+      required: true
+  
+  - type: textarea
+    id: interactive
+    attributes:
+      label: Interactive component idea?
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Technical complexity
+      description: How deep does this go?
+      options:
+        - Beginner
+        - Intermediate
+        - Advanced
+    validations:
+      required: false
+  
+  - type: input
+    id: resources
+    attributes:
+      label: Useful info to finish the issue
+      description: Any links or resources that would prove useful?
+    validations:
+      required: false

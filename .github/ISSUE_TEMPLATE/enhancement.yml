@@ -1,0 +1,67 @@
+name: Enhancement
+description: New features
+title: "[ENHANCE]: "
+labels: ["enhancement"]
+body:  
+  - type: dropdown
+    id: enhancement-type
+    attributes:
+      label: Enhancement type
+      options:
+        - Improve existing interactive component
+        - Update/expand existing post
+        - Site feature
+        - New reusable component
+        - Testing/CI/github improvement
+        - Other
+    validations:
+      required: true
+  
+  - type: textarea
+    id: aim
+    attributes:
+      label: What needs enhancement 
+      placeholder: "Specific post, component, or feature. Where is it? What's there now?"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Proposed improvement
+      description: What would make this issue considered done?
+      placeholder: "Add entropy calculation, check against common password lists, show estimated crack time..."
+    validations:
+      required: true
+  
+  - type: checkboxes
+    id: priority
+    attributes:
+      label: Priority
+      description: Select one
+      options:
+        - label: "priority: low"
+        - label: "priority: medium"
+        - label: "priority: high"
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: difficulty
+    attributes:
+      label: Difficulty
+      description: How much time and brainpower is this gonna take? Select one.
+      options:
+        - label: "difficulty: easy"
+        - label: "difficulty: average"
+        - label: "difficulty: hard"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation notes
+      description: Useful resources
+    validations:
+      required: false

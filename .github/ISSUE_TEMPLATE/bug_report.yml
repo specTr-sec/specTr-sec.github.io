@@ -1,0 +1,86 @@
+name: Bug Report
+description: Report a broken interactive component or site issue
+title: "[BUG]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an issue! Please fill out the details below.
+  
+  - type: dropdown
+    id: bug-type
+    attributes:
+      label: What type of bug is this?
+      options:
+        - Interactive component not working
+        - Styling/layout issue
+        - Build/deployment failure
+        - Performance issue
+        - Accessibility issue
+        - Other
+    validations:
+      required: true
+  
+  - type: input
+    id: affected-post
+    attributes:
+      label: Affected post/page
+      description: URL or title of the post where the bug occurs
+      placeholder: "e.g., 'Understanding XSS' or /posts/xss-demo"
+    validations:
+      required: false
+  
+  - type: textarea
+    id: description
+    attributes:
+      label: What's broken?
+      description: Clear description of the bug
+      placeholder: "When I click the 'Unsafe Render' button, nothing happens..."
+    validations:
+      required: true
+  
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should happen instead?
+      placeholder: "The XSS payload should render in the output div..."
+    validations:
+      required: true
+  
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: How can you consistently trigger this bug?
+      placeholder: |
+        1. Navigate to /posts/xss-demo
+        2. Enter '<script>alert(1)</script>' in the input
+        3. Click 'Unsafe Render'
+        4. Nothing happens
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome/Edge
+        - Firefox
+        - Safari
+        - Mobile browser
+        - Multiple browsers
+        - Not applicable
+    validations:
+      required: false
+  
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Console errors, screenshots, or anything else relevant
+      placeholder: "Console shows: Uncaught ReferenceError..."
+    validations:
+      required: false
