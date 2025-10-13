@@ -1,5 +1,5 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import PostCard from '../components/PostCard.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -7,5 +7,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout>
-	<Welcome />
+	<PostCard title="Sample Post" description="This is a sample post description." publishDate={new Date('2023-10-01')} tags={['tag1', 'tag2']} slug="sample-post" />
 </BaseLayout>
