@@ -1,0 +1,36 @@
+<!-----
+needs to take a title, tag line, date, tag and prop and display it in the box
+--- -->
+---
+interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  tags: string[];
+  slug: string;
+}
+
+const { title, description, publishDate, tags, slug } = Astro.props;
+
+const formattedDate = publishDate.toLocaleDateString('en-GB', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric'
+});
+---
+<div class="container">
+  <div class="card">
+    <a href={`/articles/${slug}`}>
+        <h2>{title}</h2>
+        <p class="h3">{description}</p>
+        <p class="date">{formattedDate}</p>
+        <div>
+        {tags.map(tag => (
+            <a class="tag" href={`/articles/${tag}`}>
+              {tag}
+            </a>
+        ))}
+        </div>
+    </a>
+</div>
+</div>
