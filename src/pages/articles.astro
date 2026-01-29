@@ -50,6 +50,14 @@ const filteredPosts = selectedTag
         />
       ))}
     </div>
+
+    
+    {filteredPosts.length == 0 ? (
+      <div class="container">
+     <h2>Exciting things coming soon!</h2>
+    </div>
+    ) : null
+    
   </div>
 </BaseLayout>
 
