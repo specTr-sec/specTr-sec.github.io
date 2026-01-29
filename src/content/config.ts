@@ -1,4 +1,3 @@
-// src/content/config.ts
 import { defineCollection, z } from 'astro:content';
 
 const blog = defineCollection({
@@ -10,7 +9,8 @@ const blog = defineCollection({
     publishDate: z.date(),
     tags: z.array(z.string()), 
     draft: z.boolean().default(true),
-    slug: z.string()
+    category: z.enum(['projects', 'articles', 'write-ups']),
+    // ,slug: z.string()
   }),
 });
 

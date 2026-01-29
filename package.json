@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.14.4"
+    "astro": "^5.16.16",
+    "remark-github-blockquote-alert": "^2.0.1"
   }
 }
