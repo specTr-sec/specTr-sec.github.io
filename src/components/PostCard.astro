@@ -17,18 +17,18 @@ const formattedDate = publishDate.toLocaleDateString('en-GB', {
 });
 ---
 <div class="container">
+  <a href={`/${id}`}>
   <div class="card">
-    <a href={`${id}`}>
         <h2>{title}</h2>
         <p class="h3">{description}</p>
         <p class="date">{formattedDate}</p>
         <div>
         {tags.map(tag => (
-            <a class="tag" href={`/${category}?tag=${tag}`}>
+            <a class="tag" href={`${category}?tag=${tag}`}>
               {tag}
             </a>
         ))}
         </div>
-    </a>
+  </a>
 </div>
 </div>

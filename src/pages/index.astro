@@ -17,7 +17,7 @@ const posts = await getCollection('blog');
       description={post.data.description || ''}
       publishDate={post.data.publishDate}
       tags={post.data.tags}
-	  category={post.data.category}
+	    category={post.data.category}
     />
   ))}
 </BaseLayout>
