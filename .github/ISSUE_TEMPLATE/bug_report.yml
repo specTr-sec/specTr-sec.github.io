@@ -13,6 +13,7 @@ body:
     attributes:
       label: What type of bug is this?
       options:
+        - Broken routing
         - Interactive component not working
         - Styling/layout issue
         - Build/deployment failure
