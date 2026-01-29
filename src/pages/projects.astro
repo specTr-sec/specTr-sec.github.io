@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = await getCollection('blog');
+
+const allPosts = posts.filter(post => post.id.startsWith('projects/'));
+
+const publishedPosts = allPosts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+
+const allTags = [...new Set(allPosts.flatMap(post => post.data.tags))].sort();
+
+const selectedTag = Astro.url.searchParams.get('tag');
+
+const filteredPosts = selectedTag
+  ? publishedPosts.filter(post => post.data.tags.includes(selectedTag))
+  : publishedPosts;
+---
+
+<BaseLayout title="Projects">
+  <div class="container">
+    <h1>Projects</h1>
+    
+    <div class="tag-filter mb-xl">
+      <a href="/projects" class:list={['tag', { 'active': !selectedTag }]}>
+        All Projects
+      </a>
+      {allTags.map(tag => (
+        <a 
+          href={`/projects?tag=${tag}`}
+          class:list={['tag', { 'active': selectedTag === tag }]}
+        >
+          {tag}
+        </a>
+      ))}
+    </div>
+
+    <div class="articles-grid">
+      {filteredPosts.map(post => (
+        <PostCard
+          title={post.data.title}
+          description={post.data.description ?? ''}
+          publishDate={post.data.publishDate}
+          tags={post.data.tags}
+          category={post.data.category}
+          id={post.id}
+        />
+      ))}
+    </div>
+
+    
+  </div>
+</BaseLayout>
+
+<style>
+  .tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .tag.active {
+    background-color: var(--color-accent-dim);
+    border-color: var(--color-accent-primary);
+    color: var(--color-text-primary);
+  }
+
+  .articles-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+  }
+</style>

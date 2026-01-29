@@ -1,8 +1,23 @@
 ---
+import { getCollection } from 'astro:content';
 import PostCard from '../components/PostCard.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = await getCollection('blog');
 ---
 
 <BaseLayout>
-	<PostCard title="Sample Post" description="This is a sample post description." publishDate={new Date('2023-10-01')} tags={['tag1', 'tag2']} slug="sample-post" />
+	<div class="container">
+		<h1>Newest Posts</h1>
+	</div>
+	{posts.map(post => (
+    <PostCard 
+      id={post.id}
+      title={post.data.title}
+      description={post.data.description || ''}
+      publishDate={post.data.publishDate}
+      tags={post.data.tags}
+	  category={post.data.category}
+    />
+  ))}
 </BaseLayout>

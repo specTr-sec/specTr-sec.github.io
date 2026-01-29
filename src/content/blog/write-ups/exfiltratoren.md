@@ -1,10 +1,14 @@
-
-| Flag no. | Flag                              |
-| -------- | --------------------------------- |
-| 1        | flagga{functional_treshold_power} |
-| 2        | flagga{qrazy_basy}                |
-| 3        | flagga{play_the_5_tones}          |
-| 4        | flagga{exf1l_by_p1ng}             |
+---
+title: "Exfiltratören"
+slug: exfiltratoren
+tagline: "A tricky post-attack forensics CTF"
+description: "A writeup for FRA's CTF \"Exfiltratören\""
+publishDate: 2026-01-28
+category: "write-ups"
+draft: false
+tags: ["ctf", "network security", "wireshark", "post-attack forensics"]
+featured: true
+---
 
 Woah! FRA has [CTFs!](https://challenge.fra.se/)
 
@@ -28,10 +32,6 @@ Here's the readme.txt
 Exciting! Anyway, as always I'm using Kali Linux, for all the sick tools ready to go, on a VirtualBox VM juuuuust in case. 
 
 First, we use Wireshark to open the `.pcap` file. 
-
-
-![[Pasted image 20260128204300.png]]
-Spooky.
 
 And with a quick perusal we see that packets 11 to 28 are interesting, so we right-click > Follow > TCP stream to see what's going on and find out a file has been transferred to the server 10.0.0.77. The msg.txt was packet 25 and was transferred using TCP, the contents is as follows:
 
@@ -69,7 +69,10 @@ Create Date                     : 2024:11:13 09:38:53+01:00
 
 But after cropping the .png to just the QR code and doing `zbarimg qr.png`.
 We get what looks like nonsense:
- `7GHE+98T16D3000D00+B9US8000G20000Q00V50000T204DF-WV0002P0MB8Z98.30Y3IY+VKS0000B44J692X9W208 4%20.UGP50000%20$ETR2033695066CD10W9JN00SAE.ONFQ7000PD0BN9%Q8RA0MKH:WK000I.00C9VW83FTLN1W/669SDRU000D50 B9TB8A63WSCZ3IWZ1S8C:0238G FWXDW/YOE62VU3TFVM8KEWJE62I-N7.A%RG02T.XQTOM4/B9%842AC*V+QLGGTR/JUEWZVTE6233W99J P6P5JUQREMN8/B8%8L06*2MINEE1K:57.2C79H.SLQ9938WFGW+BW/9HH:3AAGMFK3AS4TBZ-FF40H7KAQGJ4TS/9G VXIF3DG87G+0EH0ED$N0 QH0DNZ2EDVV$A8OR7AQ8YTY7V21OQJE./PIP6VPTL$7H7FPX18L0G9PW.CFXP0 BS3G0PE/991U08%3M2R4 FYSJJRLWSGFMUBGWQ%VF5G*:AV 0X02LDWTAW6CT+WVXCQQK26K6HTJ**4%ITBJ7000-00KVE98BGPCX9E EDZ+DQ7A5LE8QD8UC634F%6LF6E44PVDB3DPECHFEOECLFFUJC-QE3$FXOR1LU000GQ2MY85WEEECBWE-3EKH7 3EG/DPQEDLF410MD6GO7B.R0003X4MY86WEIEC*ZCXPCX C7WE510846$Q6%964W5EG6F466G7 W6GL6VK52A6646:909RI000$00KVE98B2VC7WEHH7V3EREDGDFNF6RF64W5Y96*96.SAPA7VW64G7%/67461G7P56JXJF/I000S10CY8WU8RH8+2`
+
+ ```text
+ 7GHE+98T16D3000D00+B9US8000G20000Q00V50000T204DF-WV0002P0MB8Z98.30Y3IY+VKS0000B44J692X9W208 4%20.UGP50000%20$ETR2033695066CD10W9JN00SAE.ONFQ7000PD0BN9%Q8RA0MKH:WK000I.00C9VW83FTLN1W/669SDRU000D50 B9TB8A63WSCZ3IWZ1S8C:0238G FWXDW/YOE62VU3TFVM8KEWJE62I-N7.A%RG02T.XQTOM4/B9%842AC*V+QLGGTR/JUEWZVTE6233W99J P6P5JUQREMN8/B8%8L06*2MINEE1K:57.2C79H.SLQ9938WFGW+BW/9HH:3AAGMFK3AS4TBZ-FF40H7KAQGJ4TS/9G VXIF3DG87G+0EH0ED$N0 QH0DNZ2EDVV$A8OR7AQ8YTY7V21OQJE./PIP6VPTL$7H7FPX18L0G9PW.CFXP0 BS3G0PE/991U08%3M2R4 FYSJJRLWSGFMUBGWQ%VF5G*:AV 0X02LDWTAW6CT+WVXCQQK26K6HTJ**4%ITBJ7000-00KVE98BGPCX9E EDZ+DQ7A5LE8QD8UC634F%6LF6E44PVDB3DPECHFEOECLFFUJC-QE3$FXOR1LU000GQ2MY85WEEECBWE-3EKH7 3EG/DPQEDLF410MD6GO7B.R0003X4MY86WEIEC*ZCXPCX C7WE510846$Q6%964W5EG6F466G7 W6GL6VK52A6646:909RI000$00KVE98B2VC7WEHH7V3EREDGDFNF6RF64W5Y96*96.SAPA7VW64G7%/67461G7P56JXJF/I000S10CY8WU8RH8+2
+ ```
 
 But we are cleverer than that! This totally looks like something that's been encoded.
 
@@ -101,7 +104,7 @@ If you are unsure how to extract the data, you can use export using the options 
 
 Now there's definitely a more elegant solution out there but to reconstruct the UDP chunks I used the following python script:
 
-```
+```python
 import json  
   
 def main(file):  
@@ -152,20 +155,20 @@ Remember that this will only work if you exported the data the way I did, if you
 
 In comes our trusty friend CyberChef again. Use the recipe: From Hex, RC4 decryption with the encryption key we found earlier. Now you should see the output begins with PNG. Great, we successfully reconstructed a .png transferred over UDP! Just to check we can also do MD5 hashing on it to make sure we have done it all correctly and we have. 
 
-![[Pasted image 20260128180529.png]]
+![A picture of the CyberChef recipe and the correct hash](../../../images/cyberchef_recipe.png)
 
 > [!NOTE] Avalanche effect
 > How hashing uses the avalanche effect
 
 Now we can look at our image.
 
-![[download.png]]
+![A picture of TV static.](../../../images/download.png)
 
 Er… It's Picasso…
 
 Anyway a quick check with `exiftool top_secret.png` gives:
 
-```
+```text
 ExifTool Version Number         : 13.25
 File Name                       : top_secret.png
 Directory                       : .
@@ -210,7 +213,7 @@ God above. That was a bit of work and I won't admit how long that took me. But w
 
 But how exactly they are exfiltrating the data is far from obvious. If we order filter the packets with `(_ws.col.protocol == "ICMP") && (ip.src == 10.0.0.10)` to just get packets from 10.0.0.10 using the ICMP protocol, we can see that most parts of the packet stays the same. But we should remember that we need variance to transmit data. So let's focus on that. 
 
-At first, I tried to look at the timing but I couldn't find a pattern. I was clicking through the packets sequentially when I noticed that the only parts that change really are the parts referring to the checksum and, crucially, the Identification under IPv4>Differentiated Services.
+At first, I tried to look at the timing but I couldn't find a pattern. I was clicking through the packets sequentially when I noticed that the only parts that change really are the parts referring to the checksum and, crucially, the Identification under `IPv4>Differentiated Services`.
 
 If you click through the packets from 26 to 138, the last 4 bits of the Identification spells out something!
 		
@@ -219,3 +222,10 @@ If you click through the packets from 26 to 138, the last 4 bits of the Identifi
 This was definitely the hardest to figure out, but I think that's the last flag!
 
 And with that Exfiltratören comes to a close. I think I'll do more from their archive.
+
+| Flag no. | Flag                              |
+| -------- | --------------------------------- |
+| 1        | flagga{functional_treshold_power} |
+| 2        | flagga{qrazy_basy}                |
+| 3        | flagga{play_the_5_tones}          |
+| 4        | flagga{exf1l_by_p1ng}             |

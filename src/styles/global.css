@@ -531,3 +531,48 @@ tbody tr:hover {
     transition-duration: 0.01ms !important;
     }
 }
+
+/* Callout/Alert styling */
+.markdown-alert {
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid;
+  border-radius: 0.25rem;
+}
+
+.markdown-alert-title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Note (blue) */
+.markdown-alert-note {
+  background-color: rgba(9, 105, 218, 0.1);
+  border-color: rgb(9, 105, 218);
+}
+
+/* Tip (green) */
+.markdown-alert-tip {
+  background-color: rgba(26, 127, 55, 0.1);
+  border-color: rgb(26, 127, 55);
+}
+
+/* Important (purple) */
+.markdown-alert-important {
+  background-color: rgba(130, 80, 223, 0.1);
+  border-color: rgb(130, 80, 223);
+}
+
+/* Warning (yellow/orange) */
+.markdown-alert-warning {
+  background-color: rgba(191, 135, 0, 0.1);
+  border-color: rgb(191, 135, 0);
+}
+
+/* Caution (red) */
+.markdown-alert-caution {
+  background-color: rgba(207, 34, 46, 0.1);
+  border-color: rgb(207, 34, 46);
+}
