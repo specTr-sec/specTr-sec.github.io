@@ -37,7 +37,7 @@ const filteredPosts = selectedTag
         </a>
       ))}
     </div>
-
+    
     <div>
       {filteredPosts.map(post => (
         <PostCard
@@ -50,6 +50,12 @@ const filteredPosts = selectedTag
         />
       ))}
     </div>
+
+    {filteredPosts.length == 0 ? (
+      <div class="container">
+     <h2>Exciting things coming soon!</h2>
+    </div>
+    ) : null
 
     
   </div>

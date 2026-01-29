@@ -164,7 +164,7 @@ Now we can look at our image.
 
 ![A picture of TV static.](../../../images/download.png)
 
-Er… It's Picasso…
+Er… It's... Picasso.
 
 Anyway a quick check with `exiftool top_secret.png` gives:
 
@@ -221,7 +221,11 @@ If you click through the packets from 26 to 138, the last 4 bits of the Identifi
 
 This was definitely the hardest to figure out, but I think that's the last flag!
 
-And with that Exfiltratören comes to a close. I think I'll do more from their archive.
+And with that Exfiltratören comes to a close and it was quite fun, think the FRA'll hire us?
+
+You can count on more writeups on CTFs from them.
+
+-T
 
 | Flag no. | Flag                              |
 | -------- | --------------------------------- |
