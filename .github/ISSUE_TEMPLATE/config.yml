@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Quick Note
+    url: https://github.com/specTr-sec/specTr-sec.github.io/issues/new
+    about: Create a blank issue
