@@ -9,7 +9,7 @@ const blog = defineCollection({
     publishDate: z.date(),
     tags: z.array(z.string()), 
     draft: z.boolean().default(true),
-    category: z.enum(['projects', 'articles', 'write-ups']),
+    category: z.enum(['projects', 'articles', 'write-ups', 'notes']),
     // ,slug: z.string()
   }),
 });
